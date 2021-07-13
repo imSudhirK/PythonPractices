@@ -103,6 +103,29 @@ void mergeSort(int arr[], int const l, int const r){
   merge(arr, l, mid, r);
 }
 
+int partition(int arr[], int low, int high){
+  int pivot = arr[high];
+  int p_indx = low-1;
+  for(auto j=low; j<high; j++){
+    if(arr[j]< pivot){
+      p_indx++;
+      swap(&arr[p_indx], &arr[j]);
+    }
+  }
+  p_indx++;
+  swap(&arr[p_indx], &arr[high]);
+  return p_indx;
+}
+
+void quickSort(int arr[], int low, int high){
+  if(low >= high) return;
+  else if(low < high){
+    int p_indx = partition(arr, low, high);
+    quickSort(arr, low, p_indx-1);
+    quickSort(arr, p_indx+1, high);
+  }
+}
+
 
 int main(){
   int n;
@@ -114,14 +137,12 @@ int main(){
   }
 
   //selectionSort(arr, n);
-  //printArray(arr, n);
 
   //bubbleSort(arr, n);
-  //printArray(arr, n);
 
   //insertionSort(arr, n);
-  //printArray(arr, n);
 
-  mergeSort(arr, 0, n-1);
-  printArray(arr, n);
+  //mergeSort(arr, 0, n-1);
+  quickSort(arr, 0, n);
+  printArray(arr, n);  
 }
