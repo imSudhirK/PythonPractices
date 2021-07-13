@@ -12,6 +12,15 @@ void showQ(queue<int> Q){
   cout<<endl;
 }
 
+void showPQ(priority_queue<int> pq){
+  priority_queue<int> clone = pq;
+  while(!clone.empty()){
+    cout<<clone.top()<<" ";
+    clone.pop();
+  }
+  cout<<endl;
+}
+
 int main(){
 
   queue<int> q;
@@ -28,5 +37,13 @@ int main(){
   showQ(q2);
   cout<<q1.front()<<" "<<q.size()<<endl;
   cout<<!q.empty()<<" "<<q1.back()<<endl;
+  
+  priority_queue<int>pq;
+  pq.push(1);
+  pq.push(5);
+  pq.push(9);
+  pq.push(6);
+  pq.push(2);
+  showPQ(pq);
 
 }
