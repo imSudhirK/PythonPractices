@@ -6,7 +6,6 @@ using namespace std;
 int main(){
     string str;
     getline(cin, str);
-    cout<<str.back()<<" "<<str.front()<<endl;
 
     str.push_back('k');
     //single quotes identify a single character,
